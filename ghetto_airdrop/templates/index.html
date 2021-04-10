@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>file upload</title>
+</head>
+<body>
+	<form action="/api/save/files" method="post" enctype="multipart/form-data">
+	  <label for="avatar">Choose any file(s)</label>
+	  <div>
+			<input id="file-upload" type="file" name="files" accept="*" multiple />
+	  </div>
+	  <div>
+			<input type="submit" />
+	  </div>
+	</form>
+	<script>
+		window.onload = () => {
+			const fileUploadInput = document.querySelector('#file-upload');
+			// fileUploadInput.onchange = event => {
+			// 	debugger;
+			// }
+		}
+	</script>
+</body>
+</html>
