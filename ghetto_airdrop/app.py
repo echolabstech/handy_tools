@@ -1,5 +1,4 @@
 from flask import Flask, request, make_response, render_template
-import json
 
 app = Flask(__name__)
 
@@ -13,9 +12,7 @@ def index():
 def save_files():
 	if request.method != 'POST':
 		return ('method not supported', 405)
-	json_request = request.get_json()
-	print(json_request)
-	print(request.files)
+	files = [file[1] for file in request.files.lists()]
+	for file in files[0]:
+		file.save(f'./uploads/{file.filename}')
 	return ('success', 200)
-	# f = request.files['the_file']
- #  f.save('/var/www/uploads/uploaded_file.txt')
